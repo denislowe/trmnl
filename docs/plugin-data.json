@@ -1,13 +1,15 @@
 {
-  "temperature": 70,
-  "weather_text": "Clear",
-  "forecast": [
-    { "date": "Sat Aug 30", "high": 78, "low": 62 },
-    { "date": "Sun Aug 31", "high": 80, "low": 63 },
-    { "date": "Mon Sep 01", "high": 77, "low": 61 }
-  ],
   "schedule": [
-    { "date": "Aug 30", "opponent": "Oregon", "venue": "Neutral", "kickoff": "7:30 PM" },
-    { "date": "Sep 06", "opponent": "Austin Peay", "venue": "Home", "kickoff": "3:30 PM" }
+    { "date": "Sep 06", "opponent": "Austin Peay", "venue": "Home", "kickoff": "3:30 PM" },
+    { "date": "Sep 13", "opponent": "South Carolina", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Sep 20", "opponent": "Alabama", "venue": "Home", "kickoff": "TBD" },
+    { "date": "Sep 27", "opponent": "Mississippi State", "venue": "Home", "kickoff": "TBD" },
+    { "date": "Oct 04", "opponent": "Kentucky", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Oct 11", "opponent": "Florida", "venue": "Neutral", "kickoff": "TBD" },
+    { "date": "Oct 18", "opponent": "Vanderbilt", "venue": "Home", "kickoff": "TBD" },
+    { "date": "Oct 25", "opponent": "Ole Miss", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Nov 01", "opponent": "Tennessee", "venue": "Home", "kickoff": "TBD" },
+    { "date": "Nov 08", "opponent": "Missouri", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Nov 15", "opponent": "Georgia Tech", "venue": "Home", "kickoff": "TBD" }
   ]
 }
