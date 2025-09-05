@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NYC Weather + Georgia Bulldogs</title>
+  <style>
+    body {
+      margin: 0;
+      font: 14px/1.4 system-ui, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    .wrap {
+      padding: 8px;
+    }
+    h1 {
+      font-size: 1.1rem;
+      margin: 0 0 6px 0;
+    }
+    h2 {
+      font-size: 1rem;
+      margin: 0 0 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      padding-bottom: 2px;
+    }
+    .card {
+      margin-bottom: 10px;
+      padding: 6px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      background: #111;
+    }
+    .row { display: flex; justify-content: space-between; }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .kpi {
+      font-size: .8rem;
+      background: #1a1a1a;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .forecast {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .day {
+      background: #1a1a1a;
+      padding: 4px;
+      border-radius: 4px;
+      font-size: .7rem;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .75rem;
+    }
+    thead { background: #222; }
+    th, td {
+      padding: 3px 4px;
+      border-bottom: 1px solid #333;
+    }
+    .home { color: #0f0; }
+    .away { color: #f44; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>NYC Weather · Georgia Bulldogs</h1>
+
+    <section class="card">
+      <h2>Weather (NYC)</h2>
+      <div id="wx-summary"></div>
+      <div class="kpis">
+        <div class="kpi">Temp: <span id="kpi-temp">—</span></div>
+        <div class="kpi">Feels: <span id="kpi-feels">—</span></div>
+        <div class="kpi">Wind: <span id="kpi-wind">—</span></div>
+        <div class="kpi">Hum: <span id="kpi-hum">—</span></div>
+      </div>
+      <div class="forecast" id="forecast"></div>
+    </section>
+
+    <section class="card">
+      <h2>Georgia Bulldogs Schedule</h2>
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Opponent</th><th>Venue</th><th>Kickoff</th></tr>
+        </thead>
+        <tbody id="schedBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+<script>
+const WX = {
+  coords: { lat: 40.7128, lon: -74.0060 },
+  tz: 'America/New_York',
+  codeText: {0:'Clear',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',61:'Light rain',63:'Rain',65:'Heavy rain',71:'Snow',95:'Thunderstorm'}
+};
+
+async function loadWeather(){
+  const url = new URL('https://api.open-meteo.com/v1/forecast');
+  url.search = new URLSearchParams({
+    latitude: WX.coords.lat,
+    longitude: WX.coords.lon,
+    current: 'temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m',
+    daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum',
+    timezone: WX.tz
+  });
+  const res = await fetch(url);
+  const data = await res.json();
+  renderWeather(data);
+}
+
+function renderWeather(d){
+  const c = d.current;
+  document.getElementById('wx-summary').textContent = `${Math.round(c.temperature_2m)}°F, ${WX.codeText[c.weather_code]||''}`;
+  document.getElementById('kpi-temp').textContent = `${Math.round(c.temperature_2m)}°F`;
+  document.getElementById('kpi-feels').textContent = `${Math.round(c.apparent_temperature)}°F`;
+  document.getElementById('kpi-wind').textContent = `${Math.round(c.wind_speed_10m)} mph`;
+  document.getElementById('kpi-hum').textContent = `${c.relative_humidity_2m}%`;
+
+  const f = document.getElementById('forecast');
+  f.innerHTML = '';
+  d.daily.time.slice(0,3).forEach((t,i)=>{
+    const el = document.createElement('div');
+    el.className = 'day';
+    el.textContent = `${new Date(t).toLocaleDateString(undefined,{weekday:'short'})} ${Math.round(d.daily.temperature_2m_max[i])}/${Math.round(d.daily.temperature_2m_min[i])}°`;
+    f.appendChild(el);
+  });
+}
+
+const sampleSchedule = [
+  {date:'2025-08-30', opponent:'Oregon', venue:'Neutral', kickoff:'7:30 PM'},
+  {date:'2025-09-06', opponent:'Austin Peay', venue:'Home', kickoff:'3:30 PM'},
+  {date:'2025-09-13', opponent:'Kentucky', venue:'Away', kickoff:'TBD'},
+  {date:'2025-09-20', opponent:'Alabama', venue:'Home', kickoff:'TBD'}
+];
+
+function renderSchedule(rows){
+  const tbody = document.getElementById('schedBody');
+  tbody.innerHTML = '';
+  rows.forEach(g=>{
+    const d = new Date(g.date);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${d.toLocaleDateString()}</td><td>${g.opponent}</td><td class="${g.venue.toLowerCase()}">${g.venue}</td><td>${g.kickoff}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+renderSchedule(sampleSchedule);
+loadWeather();
+</script>
+</body>
+</html>
