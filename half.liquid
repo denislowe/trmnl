@@ -13,9 +13,9 @@
             <div class="column">
               <!-- Bulldogs Schedule -->
               <div class="markdown">
-                <span class="title">UGA Football</span>
+                <span class="title">UGA Football — Next 5</span>
                 <div class="content">
-                  {% for game in schedule %}
+                  {% for game in schedule limit:5 %}
                     <div class="label">
                       {{ game.date }} — {{ game.opponent }} ({{ game.venue }}) {{ game.kickoff }}
                     </div>
@@ -28,7 +28,7 @@
 
         <div class="title_bar">
           <span class="title">Georgia Bulldogs</span>
-          <span class="instance">2025 Season</span>
+          <span class="instance">Upcoming Games</span>
         </div>
       </div>
     </div>
