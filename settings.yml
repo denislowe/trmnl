@@ -1,0 +1,7 @@
+name: NYC Weather & UGA Schedule
+strategy: polling
+refresh_interval: 60       # TRMNL will request new screens (minutes)
+no_screen_padding: 'no'
+dark_mode: 'yes'
+# polling_url is set in TRMNL's UI to:
+# https://<your-username>.github.io/<repo>/plugin-data.json
