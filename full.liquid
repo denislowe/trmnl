@@ -11,26 +11,14 @@
         <div class="layout">
           <div class="columns">
             <div class="column">
-              <!-- Weather -->
+              <!-- Bulldogs Schedule -->
               <div class="markdown">
-                <span class="title">NYC Weather</span>
-                <div class="content content--center">
-                  <span class="value">{{ temperature }}°F</span>
-                  <span class="label">{{ weather_text }}</span>
-                </div>
-                <div class="content">
-                  {% for day in forecast %}
-                    <div class="label">{{ day.date }} — {{ day.high }}/{{ day.low }}°</div>
-                  {% endfor %}
-                </div>
-              </div>
-
-              <!-- Schedule -->
-              <div class="markdown mt-4">
-                <span class="title">Georgia Bulldogs</span>
+                <span class="title">Georgia Bulldogs Football</span>
                 <div class="content">
                   {% for game in schedule %}
-                    <div class="label">{{ game.date }} — {{ game.opponent }} ({{ game.venue }}) {{ game.kickoff }}</div>
+                    <div class="label">
+                      {{ game.date }} — {{ game.opponent }} ({{ game.venue }}) {{ game.kickoff }}
+                    </div>
                   {% endfor %}
                 </div>
               </div>
@@ -39,8 +27,8 @@
         </div>
 
         <div class="title_bar">
-          <span class="title">NYC Weather · UGA Schedule</span>
-          <span class="instance">Auto-updating</span>
+          <span class="title">UGA Football Schedule</span>
+          <span class="instance">2025 Season</span>
         </div>
       </div>
     </div>
