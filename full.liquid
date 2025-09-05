@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://usetrmnl.com/css/latest/plugins.css">
+    <script src="https://usetrmnl.com/js/latest/plugins.js"></script>
+  </head>
+  <body class="environment trmnl">
+    <div class="screen">
+      <div class="view view--full">
+        <div class="layout">
+          <div class="columns">
+            <div class="column">
+              <!-- Weather -->
+              <div class="markdown">
+                <span class="title">NYC Weather</span>
+                <div class="content content--center">
+                  <span class="value">{{ temperature }}°F</span>
+                  <span class="label">{{ weather_text }}</span>
+                </div>
+                <div class="content">
+                  {% for day in forecast %}
+                    <div class="label">{{ day.date }} — {{ day.high }}/{{ day.low }}°</div>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <!-- Schedule -->
+              <div class="markdown mt-4">
+                <span class="title">Georgia Bulldogs</span>
+                <div class="content">
+                  {% for game in schedule %}
+                    <div class="label">{{ game.date }} — {{ game.opponent }} ({{ game.venue }}) {{ game.kickoff }}</div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="title_bar">
+          <span class="title">NYC Weather · UGA Schedule</span>
+          <span class="instance">Auto-updating</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
