@@ -1,0 +1,13 @@
+{
+  "temperature": 70,
+  "weather_text": "Clear",
+  "forecast": [
+    { "date": "Sat Aug 30", "high": 78, "low": 62 },
+    { "date": "Sun Aug 31", "high": 80, "low": 63 },
+    { "date": "Mon Sep 01", "high": 77, "low": 61 }
+  ],
+  "schedule": [
+    { "date": "Aug 30", "opponent": "Oregon", "venue": "Neutral", "kickoff": "7:30 PM" },
+    { "date": "Sep 06", "opponent": "Austin Peay", "venue": "Home", "kickoff": "3:30 PM" }
+  ]
+}
