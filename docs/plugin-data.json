@@ -1,8 +1,6 @@
 {
   "schedule": [
-    { "date": "Sep 13", "opponent": "15 Tennessee", "venue": "Away", "kickoff": "3:30 PM" },
-    { "date": "Sep 20", "opponent": "BYE", "venue": "N/A", "kickoff": "N/A" },
-    { "date": "Sep 27", "opponent": "19 Alabama", "venue": "Home", "kickoff": "7:30 PM" },
+    { "date": "Sep 27", "opponent": "17 Alabama", "venue": "Home", "kickoff": "7:30 PM" },
     { "date": "Oct 04", "opponent": "Kentucky", "venue": "Home", "kickoff": "12:00 PM" },
     { "date": "Oct 11", "opponent": "24 Auburn", "venue": "Away", "kickoff": "TBD" },
     { "date": "Oct 18", "opponent": "17 Ole Miss", "venue": "Away", "kickoff": "TBD" },
