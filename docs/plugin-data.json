@@ -1,12 +1,11 @@
 {
   "schedule": [
-    { "date": "Sep 27", "opponent": "17 Alabama", "venue": "Home", "kickoff": "7:30 PM" },
     { "date": "Oct 04", "opponent": "Kentucky", "venue": "Home", "kickoff": "12:00 PM" },
-    { "date": "Oct 11", "opponent": "24 Auburn", "venue": "Away", "kickoff": "TBD" },
-    { "date": "Oct 18", "opponent": "17 Ole Miss", "venue": "Away", "kickoff": "TBD" },
-    { "date": "Nov 01", "opponent": "Florida", "venue": "Neutral", "kickoff": "3:30 PM" },
+    { "date": "Oct 11", "opponent": "Auburn", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Oct 18", "opponent": "(4) Ole Miss", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Nov 01", "opponent": "(18) Florida", "venue": "Neutral", "kickoff": "3:30 PM" },
     { "date": "Nov 08", "opponent": "Mississippi State", "venue": "Home", "kickoff": "12:00 PM" },
-    { "date": "Nov 15", "opponent": "7 Texas", "venue": "Away", "kickoff": "TBD" },
+    { "date": "Nov 15", "opponent": "(9) Texas", "venue": "Away", "kickoff": "TBD" },
     { "date": "Nov 22", "opponent": "Charlotte", "venue": "Home", "kickoff": "12:45 PM" },
     { "date": "Nov 28", "opponent": "Georgia Tech", "venue": "Away", "kickoff": "3:30 PM" }
   ]
