@@ -1,6 +1,5 @@
 {
   "schedule": [
-    { "date": "Nov 15", "opponent": "(10) Texas", "venue": "Home", "kickoff": "7:30PM" },
     { "date": "Nov 22", "opponent": "Charlotte", "venue": "Home", "kickoff": "12:45 PM" },
     { "date": "Nov 28", "opponent": "(14) Georgia Tech", "venue": "Away", "kickoff": "3:30 PM" }
   ]
